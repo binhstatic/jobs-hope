@@ -5,6 +5,6 @@ import allJobsSlice from './features/allJobs/allJobsSlice';
 export const store = configureStore({
   reducer: {
     user: userSlice,
-    allJob: allJobsSlice,
+    allJobs: allJobsSlice,
   },
 });
