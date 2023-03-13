@@ -1,8 +1,13 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from '../assets/images/logo.png';
 
 const Logo = () => {
-  return <Wrapper src={logo} alt='jobshope logo' className='logo' />;
+  return (
+    <Link to='/'>
+      <Wrapper src={logo} alt='jobshope logo' className='logo' />
+    </Link>
+  );
 };
 
 const Wrapper = styled.img`

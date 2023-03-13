@@ -1,7 +1,12 @@
 import React from 'react';
+import StatsContainer from '../../components/StatsContainer';
 
 const Stats = () => {
-  return <div>Stats</div>;
+  return (
+    <>
+      <StatsContainer />
+    </>
+  );
 };
 
 export default Stats;
