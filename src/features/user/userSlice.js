@@ -45,6 +45,9 @@ const userSlice = createSlice({
         toast.success(payload);
       }
     },
+    toggleSidebar: (state) => {
+      state.isSidebarOpen = !state.isSidebarOpen;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -79,5 +82,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { logoutUser } = userSlice.actions;
+export const { logoutUser, toggleSidebar } = userSlice.actions;
 export default userSlice.reducer;
