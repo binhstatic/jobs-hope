@@ -10,6 +10,15 @@ export const loginUserThunk = async (url, user, thunkAPI) => {
   }
 };
 
+export const registerUserThunk = async (url, userInfo, thunkAPI) => {
+  try {
+    const response = await customFetch.post(url, userInfo);
+    return response.data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.response.data.msg);
+  }
+};
+
 export const clearStoreThunk = async (message, thunkAPI) => {
   try {
     thunkAPI.dispatch(logoutUser(message));

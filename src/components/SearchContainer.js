@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import FormRow from './FormRow';
 import FormRowSelect from './FormRowSelect';
 import Wrapper from '../assets/wrappers/SearchContainer';
@@ -24,6 +24,7 @@ const SearchContainer = () => {
 
   useEffect(() => {
     dispatch(handleChange({ name: 'search', value: localSearch }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedSearch]);
 
   const handleClear = (e) => {

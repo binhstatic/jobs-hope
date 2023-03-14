@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import Wrapper from '../assets/wrappers/RegisterPage';
 import FormRow from '../components/FormRow';
 import Logo from '../components/Logo';
-import { loginUser } from '../features/user/userSlice';
+import { loginUser, registerUser } from '../features/user/userSlice';
 
 const initialState = {
   name: '',
@@ -16,7 +16,7 @@ const initialState = {
 
 const Register = () => {
   const [values, setValues] = useState(initialState);
-  const { user } = useSelector((store) => store.user);
+  const { isLoading, user } = useSelector((store) => store.user);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -32,10 +32,14 @@ const Register = () => {
     e.preventDefault();
     const { name, email, password, isMember } = values;
     if (!email || !password || (!isMember && !name)) {
-      toast.error('Please fill out all fields');
+      toast.warning('Please fill out all fields');
       return;
     }
-    console.log(values);
+    if (isMember) {
+      dispatch(loginUser({ email, password }));
+      return;
+    }
+    dispatch(registerUser({ name, email, password }));
   };
 
   const toggleMember = () => {
@@ -84,7 +88,7 @@ const Register = () => {
           handleChange={handleChange}
         />
         <button type='submit' className='btn btn-block'>
-          submit
+          {isLoading ? 'loading...' : 'submit'}
         </button>
         <button
           type='button'
@@ -95,10 +99,10 @@ const Register = () => {
             )
           }
         >
-          demo app
+          {isLoading ? 'loading...' : 'demo app'}
         </button>
         <p>
-          {values.isMember ? 'Not a member yet?' : 'Already a member?'}
+          {values.isMember ? 'Not a member yet? ' : 'Already a member? '}
           <button type='button' onClick={toggleMember} className='member-btn'>
             {values.isMember ? 'Register' : 'Login'}
           </button>
