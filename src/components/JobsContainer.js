@@ -26,7 +26,7 @@ const JobsContainer = () => {
   }, [page, search, searchStatus, searchType, sort]);
 
   if (isLoading) {
-    return <Loading />;
+    return <Loading center />;
   }
 
   if (jobs.length === 0) {

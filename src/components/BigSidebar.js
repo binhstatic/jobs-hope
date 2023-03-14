@@ -16,10 +16,12 @@ const BigSidebar = () => {
             : 'sidebar-container show-sidebar'
         }
       >
-        <header>
-          <Logo />
-        </header>
-        <NavLinks />
+        <div className='content'>
+          <header>
+            <Logo />
+          </header>
+          <NavLinks />
+        </div>
       </div>
     </Wrapper>
   );
