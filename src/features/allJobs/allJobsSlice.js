@@ -63,5 +63,5 @@ const allJobsSlice = createSlice({
   },
 });
 
-export const { changePage } = allJobsSlice.actions;
+export const { changePage, handleChange, clearFilters } = allJobsSlice.actions;
 export default allJobsSlice.reducer;

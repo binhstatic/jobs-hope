@@ -39,7 +39,7 @@ const Job = ({
             <Link to='/add-job' className='btn edit-btn'>
               Edit
             </Link>
-            <button type='button' className='btn delete-btn'>
+            <button type='button' className='btn delete-btn' onClick={() => {}}>
               delete
             </button>
           </div>
