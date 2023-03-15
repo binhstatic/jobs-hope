@@ -1,10 +1,11 @@
 import React from 'react';
 import { FaSuitcaseRolling, FaCalendarCheck, FaBug } from 'react-icons/fa';
-import styled from 'styled-components';
+import { useSelector } from 'react-redux';
+import Wrapper from '../assets/wrappers/StatsContainer';
 import StatItem from './StatItem';
 
 const StatsContainer = () => {
-  const stats = {};
+  const { stats } = useSelector((store) => store.allJobs);
 
   const defaultStats = [
     {
@@ -38,18 +39,5 @@ const StatsContainer = () => {
     </Wrapper>
   );
 };
-
-const Wrapper = styled.section`
-  display: grid;
-  row-gap: 2rem;
-  @media (min-width: 768px) {
-    grid-template-columns: 1fr 1fr;
-    column-gap: 1rem;
-  }
-  @media (min-width: 1120px) {
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 1rem;
-  }
-`;
 
 export default StatsContainer;
